@@ -27,21 +27,16 @@
         <lightning-layout class="slds-grid_align-space">
             <div class="slds-text-heading_small">
                 <lightning-layout-item size="12">
-                    <lightning-button label="Agregar Nota" onclick={handleClick}>
+                    <lightning-button label="Agregar Nota" onclick={addNotesHandler}>
                     </lightning-button>
                 </lightning-layout-item>
             </div>
         </lightning-layout>
 
-        <!-- <lightning-layout-item size="12">
-            <div>Upcoming</div>
-            <template for:each={upComingTasks} for:item="taskItem">
-                <c-task-to-do key={taskItem.taskItemId} task-item-id={taskItem.taskItemId} task-item-name={taskItem.taskItemName}></c-task-to-do>
+        <lightning-layout-item size="12">
+            <div>Notes</div>
+            <template for:each={savedNotes} for:item="noteItem">
+                <c-note-item key={noteItem.noteId} note-id={noteItem.noteId} note-author={noteItem.aName} note-year={noteItem.pYear} desc-note={noteItem.dNote} main-note={noteItem.mNote}></c-note-item>
             </template>
-
-            <div>Completed</div>
-            <template for:each={completedTasks} for:item="taskItem">
-                <c-task-to-do key={taskItem.taskItemId} task-item-id={taskItem.taskItemId} task-item-name={taskItem.taskItemName} done></c-task-to-do>
-            </template>
-        </lightning-layout-item> -->
+        </lightning-layout-item>
 </template>
