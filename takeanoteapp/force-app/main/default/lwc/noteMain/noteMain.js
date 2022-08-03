@@ -14,10 +14,10 @@ export default class NoteMain extends LightningElement {
 
     addNotesHandler(){
         //por el momento obtenemos los imputs de este modo buscando por el cuerpo del html un string id (Revisar)
-        const aName1 = this.template.querySelector(".authorName");
-        const pYear1 = this.template.querySelector(".pubYear");
-        const dNote1 = this.template.querySelector(".descNote");
-        const mNote1 = this.template.querySelector(".mainNote");
+        const aName1 = this.template.getElementById("authorName");
+        const pYear1 = this.template.getElementById("pubYear");
+        const dNote1 = this.template.getElementById("descNote");
+        const mNote1 = this.template.getElementById("mainNote");
         const noteItem = {
             aName: aName1.value,
             pYear: pYear1.value,

@@ -1,7 +1,7 @@
 public with sharing class noteController {
     @AuraEnabled
     public static String addNote(String payload) {
-        takeNoteObject payloadObject = (takeNoteObject) JSON.deserialize(payload, takeNoteObject.class);
+        takeNoteObject__c payloadObject = (takeNoteObject__c) JSON.deserialize(payload, takeNoteObject.class);
   
         // La siguiente linea es generica no hardcoded accepta cualquier SObject y lo trae por nombre no optima si se sabe objetivo o(n)?.
         SObject noteObj = (Sobject) Type.forName('takeNoteObject__c').newInstance(); 
@@ -15,10 +15,10 @@ public with sharing class noteController {
         return String.valueOf(noteObj.Id);
     }
 
-    public static List<takeNoteObject> getNotes(List<SObject> objs) {
-        List<takeNoteObject> notes = new List<takeNoteObject>();
+    public static List<takeNoteObject__c> getNotes(List<SObject> objs) {
+        List<takeNoteObject__c> notes = new List<takeNoteObject__c>();
         for (SObject obj : objs) {
-          takeNoteObject note = new takeNoteObject();
+          takeNoteObject__c note = new takeNoteObject__c();
           note.noteId = obj.Id;
           note.noteAuthor = String.valueOf(obj.get('Author_Name__c'));
           note.noteYear = integer.valueOf(obj.get('Publication_Year__c'));
@@ -31,7 +31,7 @@ public with sharing class noteController {
     }
 
     @AuraEnabled
-    public static List<takeNoteObject> getSavedNotes() {
+    public static List<takeNoteObject__c> getSavedNotes() {
       List<SObject> savedNotes = Database.query(
         'SELECT Id, Author_Name__c, CreatedDate, Publication_Year__c, Note_Description__c, Note__c FROM takeNoteObject__c ORDER BY CreatedDate DESC LIMIT:100'
       );
