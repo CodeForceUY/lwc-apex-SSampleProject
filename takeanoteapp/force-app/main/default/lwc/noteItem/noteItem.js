@@ -8,8 +8,14 @@ export default class NoteItem extends LightningElement {
     @api mainNote;
     @api saved;
 
+    noteAuthor = 'asd';
+    noteYear = 1234;
+    descNote = 'asda';
+    mainNote = 'asdas';
+    saved = false; 
+
+
     get containerClass(){
-        saved = true;
-        return this.saved ? "noteItem Notes" : "";
+        return !this.saved ? "noteItem Notes" : "";
     }
 }

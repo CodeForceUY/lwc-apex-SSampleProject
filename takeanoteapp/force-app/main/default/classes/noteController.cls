@@ -21,7 +21,7 @@ public with sharing class noteController {
           takeNoteObject__c note = new takeNoteObject__c();
           note.noteId = obj.Id;
           note.noteAuthor = String.valueOf(obj.get('Author_Name__c'));
-          note.noteYear = integer.valueOf(obj.get('Publication_Year__c'));
+          note.noteYear = Integer.valueOf(obj.get('Publication_Year__c'));
           note.descNote = String.valueOf(obj.get('Note_Description__c'));
           note.mainNote = String.valueOf(obj.get('Note__c'));
           notess.add(note);

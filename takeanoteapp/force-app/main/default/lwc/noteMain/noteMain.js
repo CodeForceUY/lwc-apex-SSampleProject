@@ -29,7 +29,7 @@ export default class NoteMain extends LightningElement {
             console.log('Item inserted sucessfully');
             this.fetchToDos();
         }).catch( error => {
-            console.error('Error inserting item'+ error);
+            //console.error('Error inserting item'+ error);
         })
         inputBox.value = "";
     }
@@ -45,7 +45,7 @@ export default class NoteMain extends LightningElement {
                 this.noteItem = result;
             }
         }).catch(error => {
-            console.error('Error fetching'+ error);
+            //console.error('Error fetching'+ error);
         })
     }
 
