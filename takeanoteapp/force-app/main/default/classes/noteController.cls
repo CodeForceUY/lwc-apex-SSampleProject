@@ -1,4 +1,5 @@
 public with sharing class noteController {
+
     @AuraEnabled
     public static String addNote(String payload) {
         takeNoteObject__c payloadObject = (takeNoteObject__c) JSON.deserialize(payload, takeNoteObject.class);
@@ -36,6 +37,14 @@ public with sharing class noteController {
         'SELECT Id, Author_Name__c, CreatedDate, Publication_Year__c, Note_Description__c, Note__c FROM takeNoteObject__c ORDER BY CreatedDate DESC LIMIT:100'
       );
       return getNotes(savedNotes);
+    }
+
+    @AuraEnabled
+    public static void deleteNote(String noteId) {
+      SObject note = (Sobject) Type.forName('takeNoteObject__c').newInstance();
+      todo.put('Id', noteId);
+  
+      delete todo;
     }
 
     public class takeNoteObject {

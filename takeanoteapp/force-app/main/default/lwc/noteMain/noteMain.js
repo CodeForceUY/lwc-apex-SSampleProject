@@ -5,24 +5,44 @@ import getSavedNotes from "@salesforce/apex/noteController.getSavedNotes";
 
 export default class NoteMain extends LightningElement {
 
+
     @track noteList = [];
+    aName1;
+    pYear1;
+    dNote1;
+    mNote1;
+
+
 
     //metodo que se llama ni bien se inicia la coneccion sirve para precargar cosas
     connectedCallback(){ //metodo ciclo de vida
         this.fetchToDos();
     }
 
+    authorNameHandler(event){
+        this.aName1 = event.target.value;
+    }
+    
+    pubYearHandler(event){
+        this.pYear1 = event.target.value;
+    } 
+
+    descNoteHandler(event){
+        this.dNote1 = event.target.value;
+    } 
+
+    mainNoteHandler(event){
+        this.mNote1 = event.target.value;
+    } 
+
+
     addNotesHandler(){
         //por el momento obtenemos los imputs de este modo buscando por el cuerpo del html un string id (Revisar)
-        const aName1 = this.template.getElementById("authorName");
-        const pYear1 = this.template.getElementById("pubYear");
-        const dNote1 = this.template.getElementById("descNote");
-        const mNote1 = this.template.getElementById("mainNote");
         const noteItem = {
-            aName: aName1.value,
-            pYear: pYear1.value,
-            dNote: dNote1.value,
-            mNote: mNote1.value,
+            aName: this.Name1,
+            pYear: this.pYear1,
+            dNote: this.dNote1,
+            mNote: this.mNote1,
             saved: false
         }
         addNote({payload: JSON.stringify(noteItem)}).then( response =>{
@@ -31,7 +51,7 @@ export default class NoteMain extends LightningElement {
         }).catch( error => {
             //console.error('Error inserting item'+ error);
         })
-        inputBox.value = "";
+        //inputBox.value = "";
     }
 
     get savedNotes(){
