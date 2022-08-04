@@ -10,6 +10,6 @@ export default class NoteItem extends LightningElement {
 
 
     get containerClass(){
-        return !this.saved ? "noteItem Notes" : "";
+        return "noteItem Notes";
     }
 }
