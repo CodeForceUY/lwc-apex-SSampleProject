@@ -45,7 +45,7 @@ export default class NoteMain extends LightningElement {
             mNote: this.mNote1,
             saved: false
         }
-        addNote({payload: JSON.stringify(noteItem)}).then( response =>{
+        addNote({name: JSON.stringify(noteItem)}).then( response =>{
             console.log('Item inserted sucessfully');
             this.fetchToDos();
         }).catch( error => {
@@ -55,7 +55,7 @@ export default class NoteMain extends LightningElement {
     }
 
     get savedNotes(){
-        return this.noteItem && this.noteList.length ? this.noteItem.filter( noteItem => !noteItem.saved): [];
+        return this.noteList;
     }
 
     //metodo para llamar algo del backend en nuestro caso una clase de apex 
