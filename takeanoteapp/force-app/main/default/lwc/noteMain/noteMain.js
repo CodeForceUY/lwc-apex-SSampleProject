@@ -45,7 +45,7 @@ export default class NoteMain extends LightningElement {
             mNote: this.mNote1,
             saved: false
         }
-        addNote({name: JSON.stringify(noteItem)}).then( response =>{
+        addNote({ payload: JSON.stringify(noteItem)}).then( response =>{
             console.log('Item inserted sucessfully');
             this.fetchToDos();
         }).catch( error => {
