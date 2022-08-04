@@ -1,6 +1,6 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement , track} from 'lwc';
 import addNote from "@salesforce/apex/noteController.addNote";
-import getNotes from "@salesforce/apex/noteController.getSavedNotes";
+import getSavedNotes from "@salesforce/apex/noteController.getSavedNotes";
 
 
 export default class NoteMain extends LightningElement {
@@ -50,7 +50,7 @@ export default class NoteMain extends LightningElement {
             this.fetchToDos();
         }).catch( error => {
             console.log('Error inserting item'+ error);
-        })
+        });
         //inputBox.value = "";
     }
 
@@ -60,13 +60,13 @@ export default class NoteMain extends LightningElement {
 
     //metodo para llamar algo del backend en nuestro caso una clase de apex 
     fetchToDos(){
-        getNotes().then(result => {
+        getSavedNotes().then(result => {
             if(result){
-                this.noteItem = result;
+                this.noteList = result;
             }
         }).catch(error => {
             console.log('Error fetching'+ error);
-        })
+        });
     }
 
 }
