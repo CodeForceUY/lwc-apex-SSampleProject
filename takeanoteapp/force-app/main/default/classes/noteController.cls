@@ -5,7 +5,7 @@ public class noteController {
         takeNoteObject payloadObject = (takeNoteObject) JSON.deserialize(payload, takeNoteObject.class);
   
         // La siguiente linea es generica no hardcoded accepta cualquier SObject y lo trae por nombre no optima si se sabe objetivo o(n)?.
-        SObject noteObj = (Sobject) Type.forName('takeNoteObject__c').newInstance();
+        SObject noteObj = (SObject) Type.forName('takeNoteObject__c').newInstance();
         noteObj.put('Name', '0x6432'); 
         noteObj.put('Author_Name__c', payloadObject.noteAuthor);
         noteObj.put('Publication_Year__c', payloadObject.noteYear);
