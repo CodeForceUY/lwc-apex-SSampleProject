@@ -6,11 +6,10 @@ public class noteController {
   
         // La siguiente linea es generica no hardcoded accepta cualquier SObject y lo trae por nombre no optima si se sabe objetivo o(n)?.
         SObject noteObj = (SObject) Type.forName('takeNoteObject__c').newInstance();
-        noteObj.put('Name', '0x6432'); 
-        noteObj.put('Author_Name__c', payloadObject.noteAuthor);
-        noteObj.put('Publication_Year__c', payloadObject.noteYear);
-        noteObj.put('Note_Description__c', payloadObject.descNote);
-        noteObj.put('Note__c', payloadObject.mainNote);
+        noteObj.put('Author_Name__c', payloadObject.aName);
+        noteObj.put('Publication_Year__c', payloadObject.pYear);
+        noteObj.put('Note_Description__c', payloadObject.dNote);
+        noteObj.put('Note__c', payloadObject.mNote);
   
         insert noteObj;
   
@@ -22,10 +21,10 @@ public class noteController {
         for (SObject obj : objs) {
           takeNoteObject note = new takeNoteObject();
           note.noteId = obj.Id;
-          note.noteAuthor = String.valueOf(obj.get('Author_Name__c'));
-          note.noteYear = Integer.valueOf(obj.get('Publication_Year__c'));
-          note.descNote = String.valueOf(obj.get('Note_Description__c'));
-          note.mainNote = String.valueOf(obj.get('Note__c'));
+          note.aName = String.valueOf(obj.get('Author_Name__c'));
+          note.pYear = Integer.valueOf(obj.get('Publication_Year__c'));
+          note.dNote = String.valueOf(obj.get('Note_Description__c'));
+          note.mNote = String.valueOf(obj.get('Note__c'));
           notes.add(note);
         }
     
@@ -52,12 +51,12 @@ public class noteController {
         @AuraEnabled
         public String noteId;
         @AuraEnabled
-        public String noteAuthor;
+        public String aName;
         @AuraEnabled
-        public integer noteYear;
+        public integer pYear;
         @AuraEnabled
-        public String descNote;
+        public String dNote;
         @AuraEnabled
-        public String mainNote;
+        public String mNote;
     }
 }
