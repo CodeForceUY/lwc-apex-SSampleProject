@@ -39,7 +39,7 @@ export default class NoteMain extends LightningElement {
     addNotesHandler(){
         //por el momento obtenemos los imputs de este modo buscando por el cuerpo del html un string id (Revisar)
         const noteItem = {
-            aName: this.Name1,
+            aName: this.aName1,
             pYear: this.pYear1,
             dNote: this.dNote1,
             mNote: this.mNote1,
