@@ -40,7 +40,7 @@
         <lightning-layout-item size="12">
             <div>Notes</div>
             <template for:each={savedNotes} for:item="noteItem">
-                <c-note-item key={noteItem.noteId} note-id={noteItem.noteId} note-author={noteItem.aName} note-year={noteItem.pYear} desc-note={noteItem.dNote} main-note={noteItem.mNote}></c-note-item>
+                <c-note-item key={noteItem.noteId} note-id={noteItem.noteId} note-author={noteItem.aName} note-year={noteItem.pYear} desc-note={noteItem.dNote} main-note={noteItem.mNote} done></c-note-item>
             </template>
         </lightning-layout-item>
 </template>
