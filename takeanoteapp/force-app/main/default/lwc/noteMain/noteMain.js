@@ -1,4 +1,4 @@
-import { LightningElement , track} from 'lwc';
+import { LightningElement } from 'lwc';
 import addNote from "@salesforce/apex/noteController.addNote";
 import getSavedNotes from "@salesforce/apex/noteController.getSavedNotes";
 
@@ -6,7 +6,7 @@ import getSavedNotes from "@salesforce/apex/noteController.getSavedNotes";
 export default class NoteMain extends LightningElement {
 
 
-    @track noteList = [];
+    noteList = [];
     aName1;
     pYear1;
     dNote1;
